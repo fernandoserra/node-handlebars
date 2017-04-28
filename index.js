@@ -1,6 +1,7 @@
 const express=require('express')
 const hbs=require('express-handlebars')
 const app=express()
+var port = process.env.PORT || 3000
 
 app.engine('.hbs',hbs({
     defaultLayout:'default',
@@ -19,6 +20,6 @@ app.get('/contacto',function(req,res){
 app.use(function(req, res, next) {
   res.status(404).send('pagina no encontrada!');
 });
-app.listen(3000,function(){
-    console.log('Corriendo en el puerto 3000...')
+app.listen(port,function(){
+    console.log(`Servidor Corriendo ${port}`)
 });
